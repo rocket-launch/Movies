@@ -53,7 +53,7 @@ final class MovieGenresViewController: UIViewController {
     private func fetchMoviesByGenre() {
         Task {
             let movieListViewController = MovieListViewController()
-            movieListViewController.movies = try await NetworkManager.shared.getMovieListByGenre(genres: selectedMovieGenres)
+            movieListViewController.movies = try await NetworkManager.shared.fetchMovieListByGenre(genres: selectedMovieGenres)
             movieListViewController.genreIDs = selectedMovieGenres
             navigationController?.pushViewController(movieListViewController, animated: true)
         }
@@ -62,7 +62,7 @@ final class MovieGenresViewController: UIViewController {
     private func fetchMovieTags() {
         Task {
             do {
-                movieGenreTags = try await NetworkManager.shared.getMovieGenres().genres
+                movieGenreTags = try await NetworkManager.shared.fetchMovieGenres().genres
                 setUpMovieTags()
             }
         }

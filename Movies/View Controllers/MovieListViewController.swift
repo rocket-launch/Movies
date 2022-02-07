@@ -42,7 +42,7 @@ final class MovieListViewController: UITableViewController {
         isFetchingMovies = true
         
         Task {
-            let fetchedMovies = try await NetworkManager.shared.getMovieListByGenre(genres: genreIDs, for: page)
+            let fetchedMovies = try await NetworkManager.shared.fetchMovieListByGenre(genres: genreIDs, for: page)
             movies.append(contentsOf: fetchedMovies)
             isFetchingMovies = false
             

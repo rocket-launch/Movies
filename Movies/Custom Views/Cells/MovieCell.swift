@@ -38,10 +38,10 @@ final class MovieCell: UITableViewCell {
     
     func setUpCellContent(for movie: Movie) {
         Task {
-            if let image = await NetworkManager.shared.getMoviePosterImage(for: movie) {
+            if let image = await NetworkManager.shared.fetchMoviePosterImage(for: movie) {
                 moviePosterImageView.image = image
             }
-            if let runtime = await NetworkManager.shared.getMovieByID(for: movie.id)?.runtime {
+            if let runtime = await NetworkManager.shared.fetchMovieByID(for: movie.id)?.runtime {
                 movieRuntimeLabel.text = runtime > 0 ? "\(runtime) minutes." : "N/A."
             }
             movieTitleLabel.text = movie.title
