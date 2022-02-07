@@ -16,3 +16,8 @@ enum Images {
 enum Colors {
     static let lightRed = UIColor(red: 1.00, green: 0.53, blue: 0.55, alpha: 1.00)
 }
+
+enum Fonts {
+    static let movieTitleFont = UIFont.systemFont(ofSize: 25, weight: .bold)
+    static let movieDetailsFont = UIFont.systemFont(ofSize: 20, weight: .medium)
+}
