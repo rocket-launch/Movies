@@ -21,4 +21,5 @@ enum Fonts {
     static let movieTitleFont = UIFont.systemFont(ofSize: 25, weight: .bold)
     static let movieDetailsFont = UIFont.systemFont(ofSize: 20, weight: .medium)
     static let searchButtonFont = UIFont.systemFont(ofSize: 20)
+    static let noMoviewFoundFont = UIFont.systemFont(ofSize: 40, weight: .bold)
 }

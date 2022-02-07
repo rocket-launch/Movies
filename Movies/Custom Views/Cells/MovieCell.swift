@@ -42,7 +42,7 @@ final class MovieCell: UITableViewCell {
                 moviePosterImageView.image = image
             }
             if let runtime = await NetworkManager.shared.fetchMovieByID(for: movie.id)?.runtime {
-                movieRuntimeLabel.text = runtime > 0 ? "\(runtime) minutes." : "N/A."
+                movieRuntimeLabel.text = runtime > 0 ? "\(runtime) minutes" : "N/A."
             }
             movieTitleLabel.text = movie.title
             movieReleaseYearLabel.text = movie.releaseDate?.dateRepresentation?.convertToYearOnlyFormat() ?? "N/A."

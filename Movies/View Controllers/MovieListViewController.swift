@@ -17,6 +17,9 @@ final class MovieListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViewController()
+        if movies.isEmpty {
+            showNoMoviesFoundView()
+        }
         setUpTableView()
     }
     
@@ -51,6 +54,17 @@ final class MovieListViewController: UITableViewController {
             }
             self.tableView.reloadData()
         }
+    }
+    
+    private func showNoMoviesFoundView() {
+        let emptyView = EmptyMoviesView()
+        view.addSubview(emptyView)
+        NSLayoutConstraint.activate([
+            emptyView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            emptyView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            emptyView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            emptyView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
     }
 }
 
