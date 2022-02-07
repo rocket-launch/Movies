@@ -8,8 +8,8 @@
 import UIKit
 
 enum Images {
-    static let movieTagChecked = UIImage(systemName: "circle")
-    static let movieTagUnchecked = UIImage(systemName: "checkmark.circle.fill")
+    static let movieTagUnchecked = UIImage(systemName: "circle")
+    static let movieTagChecked = UIImage(systemName: "checkmark.circle.fill")
     static let filmImage = UIImage(systemName: "film")
 }
 
@@ -20,4 +20,5 @@ enum Colors {
 enum Fonts {
     static let movieTitleFont = UIFont.systemFont(ofSize: 25, weight: .bold)
     static let movieDetailsFont = UIFont.systemFont(ofSize: 20, weight: .medium)
+    static let searchButtonFont = UIFont.systemFont(ofSize: 20)
 }

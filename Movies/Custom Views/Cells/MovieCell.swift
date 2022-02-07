@@ -36,6 +36,29 @@ final class MovieCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setUpCellContent(for movie: Movie) {
+        Task {
+            if let image = await NetworkManager.shared.getMoviePosterImage(for: movie) {
+                moviePosterImageView.image = image
+            }
+            if let runtime = await NetworkManager.shared.getMovieByID(for: movie.id)?.runtime {
+                movieRuntimeLabel.text = runtime > 0 ? "\(runtime) minutes." : "N/A."
+            }
+            movieTitleLabel.text = movie.title
+            movieReleaseYearLabel.text = movie.releaseDate?.dateRepresentation?.convertToYearOnlyFormat() ?? "N/A."
+            movieOverviewLabel.text = movie.overview ?? "N/A."
+        }
+
+    }
+    
+    func clearCellContent() {
+        moviePosterImageView.image = Images.filmImage
+        movieTitleLabel.text = ""
+        movieReleaseYearLabel.text = ""
+        movieRuntimeLabel.text = ""
+        movieOverviewLabel.text = ""
+    }
+    
     private func setUpMovieCell() {
         setUpContainerView()
         setUpMoviePosterImageView()
@@ -133,7 +156,7 @@ final class MovieCell: UITableViewCell {
             movieOverviewLabel.topAnchor.constraint(equalTo: moviePosterImageView.bottomAnchor, constant: padding),
             movieOverviewLabel.leadingAnchor.constraint(equalTo: moviePosterImageView.leadingAnchor),
             movieOverviewLabel.trailingAnchor.constraint(equalTo: movieTitleLabel.trailingAnchor),
-            movieOverviewLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -padding)
+            movieOverviewLabel.bottomAnchor.constraint(lessThanOrEqualTo: containerView.bottomAnchor, constant: -padding)
         ])
     }
 }
