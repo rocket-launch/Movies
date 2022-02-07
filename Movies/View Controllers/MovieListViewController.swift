@@ -19,6 +19,7 @@ final class MovieListViewController: UITableViewController {
         setUpViewController()
         if movies.isEmpty {
             showNoMoviesFoundView()
+            return
         }
         setUpTableView()
     }

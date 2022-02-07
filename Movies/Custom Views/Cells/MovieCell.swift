@@ -48,7 +48,6 @@ final class MovieCell: UITableViewCell {
             movieReleaseYearLabel.text = movie.releaseDate?.dateRepresentation?.convertToYearOnlyFormat() ?? "N/A."
             movieOverviewLabel.text = movie.overview ?? "N/A."
         }
-
     }
     
     func clearCellContent() {
